@@ -3,7 +3,13 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - playerLaser
+  - enemyLaser
+  - limit
+  - meteor
+  - PowerUpShield
+  - PowerUpLife
   layers:
   - Default
   - TransparentFX
