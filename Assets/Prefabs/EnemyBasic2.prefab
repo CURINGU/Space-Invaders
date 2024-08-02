@@ -119,7 +119,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e37443f51e6c82342bb74e5028eb7e9c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  particlesPf: {fileID: 5678481516766615670, guid: e7d5c8348e491ad4295cd6555e7bb0de, type: 3}
   explosionPf: {fileID: 3645555894444872670, guid: aa685e4c451a38c40a5af2b9ae718ae8, type: 3}
   renderObject: {fileID: 1125473240044533124}
   moveSpeed: 0.9
@@ -131,6 +130,7 @@ MonoBehaviour:
   bulletPrefab: {fileID: 8996786874028550959, guid: 26958f75f3858f948822c6579e9cd6f8, type: 3}
   firePoint: {fileID: 3386873756247067396}
   canShoot: 0
+  pointsToAdd: 5
 --- !u!1 &543273861890908798
 GameObject:
   m_ObjectHideFlags: 0

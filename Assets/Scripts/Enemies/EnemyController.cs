@@ -22,13 +22,17 @@ public class EnemyController : MonoBehaviour
     public Transform firePoint;
     public bool canShoot = false;
 
+    [Space(20)]
+    private Pontuation pontuation;
+    public int pointsToAdd;
+
     void Start()
     {
-        //Se o jogador existe, ele é associado a variável
         if(GameObject.FindGameObjectWithTag("Player"))
             player = GameObject.FindGameObjectWithTag("Player").transform;
 
         soundFeedback = FindObjectOfType<EnemySoundFeedback>();
+        pontuation = FindObjectOfType<Pontuation>();
 
         StartCoroutine(Shoot());
     }
@@ -55,6 +59,8 @@ public class EnemyController : MonoBehaviour
         transform.Translate(Vector3.down * moveSpeed * Time.deltaTime);
     }
 
+
+    //Define a rotação de cada arma
     void LookAtPlayer()
     {
         if (canShoot)
@@ -124,19 +130,23 @@ public class EnemyController : MonoBehaviour
         if (other.gameObject.tag == "playerLaser")
         {
             other.GetComponent<Laser>().Destroy();
-            FindObjectOfType<RoundManager>().EnemyDestroyed();
-            //Instantiate(particlesPf, transform.position, transform.rotation);
-            Instantiate(explosionPf, transform.position, Quaternion.identity);
             if (isDestroiyng == false)
             {
                 isDestroiyng = true;
                 soundFeedback.PlaySound(EnemySoundType.explodeSound);
+                FindObjectOfType<RoundManager>().EnemyDestroyed();
+                pontuation.AddPoints(pointsToAdd);
+                Instantiate(explosionPf, transform.position, Quaternion.identity);
             }
             Destroy(gameObject);
         }
 
         if (other.tag == "limit")
         {
+            if(player != null)
+                player.GetComponent<PlayerHealth>().DecreaseLife();
+
+            pontuation.DecreasePoints(pointsToAdd / 2); //Desconta a pontuação total do jogador com a metade da pontuação concedida pelo inimigo 
             FindObjectOfType<RoundManager>().EnemyDestroyed();
             Destroy(gameObject);
         }

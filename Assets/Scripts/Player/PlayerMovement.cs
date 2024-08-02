@@ -4,21 +4,23 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    [SerializeField] private float moveSpeed;
-    [SerializeField] private float rotationSpeed;
-    public Transform renderObject;
-
-    public Transform[] weaponTransforms;
-
+    [Header("Movement")]
+    [SerializeField] public float moveSpeed;
+    public Transform renderObject; 
     public bool canMove = true;
+
+    [Header("Weapons Rotation")]
+    public Transform[] weaponTransforms;
 
     private PlayerPowerUps playerPowerUps;
     private PlayerHealth playerHealth;
+    private PlayerSoundFeedback soundFeedback;
 
     private void Start()
     {
         playerPowerUps = GetComponent<PlayerPowerUps>();
         playerHealth = GetComponent<PlayerHealth>();
+        soundFeedback = GetComponentInChildren<PlayerSoundFeedback>();
     }
 
     void Update()
@@ -41,7 +43,7 @@ public class PlayerMovement : MonoBehaviour
         transform.position = new Vector3(clampedX, transform.position.y, transform.position.z);
     }
 
-    //Faz o objeto olhar para o mouse
+    //Faz as armas olharem para o mouse
     void RotateWeaponsTowardsMouse()
     {
         Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
@@ -78,11 +80,13 @@ public class PlayerMovement : MonoBehaviour
             Destroy(other.gameObject);
             if(!playerPowerUps.isShieldActive)
                 playerPowerUps.ActivateShield();
+            soundFeedback.PlaySound(PlayerSoundType.gainPowerUp);
         }
         if (other.gameObject.tag == "PowerUpLife")
         {
             Destroy(other.gameObject);
             playerHealth.AddLife();
+            soundFeedback.PlaySound(PlayerSoundType.gainPowerUp);
         }
     }
 }

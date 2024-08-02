@@ -50,6 +50,11 @@ public class PlayerHealth : MonoBehaviour
         currentLifes++;
     }
 
+    public void AddLifeAmount(int amount)
+    {
+        currentLifes += amount;
+    }
+
     public void DestroyPlayer()
     {
         Destroy(gameObject);

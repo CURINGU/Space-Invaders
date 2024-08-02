@@ -14,7 +14,7 @@ public class PlayerAim : MonoBehaviour
     public Transform rightFirePoint;
     public bool isReloading;
     public float reloadTime = 0;
-    public float maxReloadTime = 1;
+    public float maxReloadTime;
     public float damage;
 
     // Start is called before the first frame update

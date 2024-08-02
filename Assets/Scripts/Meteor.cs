@@ -10,12 +10,14 @@ public class Meteor : MonoBehaviour
 
     public GameObject[] powerUps;
     public float dropChance = 0.1f;
+    private int rotationVelocity;
 
     private EnemySoundFeedback soundFeedback;
 
     private void Start()
     {
         soundFeedback = FindObjectOfType<EnemySoundFeedback>();
+        rotationVelocity = Random.Range(10, 50);
     }
 
     void Update()
@@ -26,6 +28,7 @@ public class Meteor : MonoBehaviour
     void MoveDown()
     {
         transform.Translate(Vector3.down * moveSpeed * Time.deltaTime);
+        transform.GetChild(0).Rotate(Vector3.forward, rotationVelocity * Time.deltaTime);
     }
 
     private void TryDropPowerUp()
@@ -43,6 +46,7 @@ public class Meteor : MonoBehaviour
     {
         if(collision.tag == "limit")
         {
+            FindObjectOfType<RoundManager>().EnemyDestroyed();
             Destroy(gameObject);
         }
 
@@ -50,13 +54,13 @@ public class Meteor : MonoBehaviour
         {
             collision.GetComponent<Laser>().Destroy();
             Instantiate(particlesPf, transform.position, transform.rotation);
-            FindObjectOfType<RoundManager>().EnemyDestroyed();
             TryDropPowerUp();
 
             if (isDestroiyng == false)
             {
                 isDestroiyng = true;
                 soundFeedback.PlaySound(EnemySoundType.meteorExplodeSound);
+                FindObjectOfType<RoundManager>().EnemyDestroyed();
             }
             
             Destroy(gameObject);
