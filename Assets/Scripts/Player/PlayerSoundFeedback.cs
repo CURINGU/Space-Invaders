@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerSoundFeedback : MonoBehaviour
 {
     [SerializeField]
-    private AudioClip shootSound, explodeSound, damageSound, defeadSound, gainPowerUp;
+    private AudioClip shootSound, explodeSound, damageSound, defeadSound, gainPowerUp, shieldDown;
 
     [SerializeField]
     private AudioSource audioSource;
@@ -29,6 +29,9 @@ public class PlayerSoundFeedback : MonoBehaviour
             case PlayerSoundType.gainPowerUp:
                 audioSource.PlayOneShot(gainPowerUp);
                 break;
+            case PlayerSoundType.shieldDown:
+                audioSource.PlayOneShot(shieldDown);
+                break;
             default:
                 break;
         }
@@ -42,5 +45,6 @@ public enum PlayerSoundType
     damageSound,
     defeadSound,
     gainPowerUp,
+    shieldDown,
 }
 

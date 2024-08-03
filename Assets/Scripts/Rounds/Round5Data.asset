@@ -10,15 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 25dd97fdc122c094681c72fc44e7178a, type: 3}
-  m_Name: Round3Data
+  m_Name: Round5Data
   m_EditorClassIdentifier: 
-  enemyCount: 50
-  spawnInterval: 1
+  enemyCount: 75
+  spawnInterval: 0.9
   enemyPrefabs:
-  - {fileID: 4172078826257961588, guid: 9b2847fb0e0f7b44fb5a4940aa46ae7e, type: 3}
-  - {fileID: 4172078826257961588, guid: 9b2847fb0e0f7b44fb5a4940aa46ae7e, type: 3}
+  - {fileID: 7909084406297990813, guid: a4fe41fd26814494daa4f8a751db55da, type: 3}
+  - {fileID: 7909084406297990813, guid: a4fe41fd26814494daa4f8a751db55da, type: 3}
   - {fileID: 8711614352496368580, guid: 033948ee25e23b8449d59aa5a8214bff, type: 3}
-  - {fileID: 2234348764467043105, guid: 90a2b18141ef671468ec791ee891ffc6, type: 3}
+  - {fileID: 8711614352496368580, guid: 033948ee25e23b8449d59aa5a8214bff, type: 3}
   - {fileID: 160735269769113232, guid: 605279bf26442d948950b9e180dfa5d9, type: 3}
+  - {fileID: 2234348764467043105, guid: 90a2b18141ef671468ec791ee891ffc6, type: 3}
   - {fileID: 3853642099976096699, guid: c7ff2494ebfd52641a1ea5269e9e7c33, type: 3}
   - {fileID: 4717840911372953915, guid: 10084776a5cd91a41b59cdf86cd02ef1, type: 3}

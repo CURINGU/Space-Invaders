@@ -27,11 +27,14 @@ public class PlayerPowerUps : MonoBehaviour
     public int livesToAdd;
     private PlayerHealth playerHealth;
 
+    private PlayerSoundFeedback soundFeedback;
+
     void Start()
     {
         playerMovement = GetComponent<PlayerMovement>();
         playerAim = GetComponent<PlayerAim>();
         playerHealth = GetComponent<PlayerHealth>();
+        soundFeedback = GetComponentInChildren<PlayerSoundFeedback>();
 
         if (shieldObject != null)
         {
@@ -93,5 +96,6 @@ public class PlayerPowerUps : MonoBehaviour
         yield return new WaitForSeconds(1f);
         isShieldActive = false;
         shieldObject.SetActive(false);
+        soundFeedback.PlaySound(PlayerSoundType.shieldDown);
     }
 }

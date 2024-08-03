@@ -38,6 +38,8 @@ public class RoundManager : MonoBehaviour
 
     IEnumerator SpawnEnemies(RoundData roundData)
     {
+        yield return new WaitForSeconds(1);
+
         roundTxt.gameObject.SetActive(true);
 
         // Chama a coroutine para exibir o texto do round

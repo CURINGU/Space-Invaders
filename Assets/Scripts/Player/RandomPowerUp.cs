@@ -48,6 +48,8 @@ public class RandomPowerUp : MonoBehaviour
     //Seleciona um PowerUp aleatório com um marcador que corre pelos objetos
     private IEnumerator SelectPowerUp()
     {
+        yield return new WaitForSeconds(1);
+
         isSelecting = true;
         selectionMarker.gameObject.SetActive(true);
         currentIndex = 0;

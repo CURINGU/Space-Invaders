@@ -13,8 +13,10 @@ MonoBehaviour:
   m_Name: Round1Data
   m_EditorClassIdentifier: 
   enemyCount: 20
-  spawnInterval: 1.2
+  spawnInterval: 1.1
   enemyPrefabs:
   - {fileID: 2234348764467043105, guid: 90a2b18141ef671468ec791ee891ffc6, type: 3}
   - {fileID: 160735269769113232, guid: 605279bf26442d948950b9e180dfa5d9, type: 3}
   - {fileID: 3853642099976096699, guid: c7ff2494ebfd52641a1ea5269e9e7c33, type: 3}
+  - {fileID: 4717840911372953915, guid: 10084776a5cd91a41b59cdf86cd02ef1, type: 3}
+  - {fileID: 2234348764467043105, guid: 90a2b18141ef671468ec791ee891ffc6, type: 3}

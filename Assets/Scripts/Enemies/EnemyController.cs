@@ -9,8 +9,8 @@ public class EnemyController : MonoBehaviour
     private bool isDestroiyng = false;
 
     [Header("Movement")]
-    private Transform player;
     public Transform renderObject;
+    private Transform player;
     public float moveSpeed = 2f;
     public bool isOnScreen;
 
@@ -19,12 +19,20 @@ public class EnemyController : MonoBehaviour
     public float shootInterval = 0.5f;
     public float stopShootingDistance = 2f;
     public GameObject bulletPrefab;
-    public Transform firePoint;
     public bool canShoot = false;
 
     [Space(20)]
-    private Pontuation pontuation;
+    public bool useOffset;
+    public float offset;
+
+    [Header("Health")]
+    public int lives;
+    public bool isUsingShield;
+    public GameObject shield; //Apenas usar se existir shield no objeto
+
+    [Space(20)]
     public int pointsToAdd;
+    private Pontuation pontuation;
 
     void Start()
     {
@@ -69,6 +77,17 @@ public class EnemyController : MonoBehaviour
             {
                 Vector3 direction = player.position - transform.position;
                 float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg + 90f;
+
+                // Se usa o offset, o diciona dependendo de qual arma esta lidando (esquerda ou direita)
+                if (useOffset && weapon.name == "LeftGun")
+                {
+                    angle -= offset;
+                }
+                else if (useOffset && weapon.name == "RightGun")
+                {
+                    angle += offset;
+                }
+
                 Quaternion targetRotation = Quaternion.Euler(new Vector3(0, 0, angle));
                 weapon.rotation = Quaternion.Slerp(weapon.rotation, targetRotation, Time.deltaTime * 5f);
             }
@@ -130,15 +149,31 @@ public class EnemyController : MonoBehaviour
         if (other.gameObject.tag == "playerLaser")
         {
             other.GetComponent<Laser>().Destroy();
-            if (isDestroiyng == false)
+            if(lives > 0)
             {
-                isDestroiyng = true;
-                soundFeedback.PlaySound(EnemySoundType.explodeSound);
-                FindObjectOfType<RoundManager>().EnemyDestroyed();
-                pontuation.AddPoints(pointsToAdd);
-                Instantiate(explosionPf, transform.position, Quaternion.identity);
+                lives--;
+
+                if(lives <= 1 && isUsingShield)
+                {
+                    isUsingShield = false;
+                    shield.SetActive(false);
+                    soundFeedback.PlaySound(EnemySoundType.shieldDown);
+                }
+
+                if(lives == 0)
+                {
+                    if (isDestroiyng == false)
+                    {
+                        isDestroiyng = true;
+                        soundFeedback.PlaySound(EnemySoundType.explodeSound);
+                        FindObjectOfType<RoundManager>().EnemyDestroyed();
+                        pontuation.AddPoints(pointsToAdd);
+                        Instantiate(explosionPf, transform.position, Quaternion.identity);
+                    }
+
+                    Destroy(gameObject);
+                }
             }
-            Destroy(gameObject);
         }
 
         if (other.tag == "limit")

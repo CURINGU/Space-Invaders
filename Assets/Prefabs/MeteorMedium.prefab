@@ -131,13 +131,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e7bf9ad250e080248a83bd3d6646c1ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 1
+  moveSpeed: 1.25
   particlesPf: {fileID: 3485735289438640099, guid: 6c62536c85d83544093998af3a3f36db, type: 3}
   isDestroiyng: 0
   powerUps:
   - {fileID: 6171835161825772160, guid: d1f5d0c5fdec7d14ab96213d86559f1d, type: 3}
   - {fileID: 8624812887731038702, guid: 7e79b040e8a3d544187c27e94fb5f4a6, type: 3}
-  dropChance: 0.1
+  dropChance: 0.3
 --- !u!61 &1056717741764532419
 BoxCollider2D:
   m_ObjectHideFlags: 0

@@ -47,7 +47,7 @@ public class PlayerHealth : MonoBehaviour
 
     public void AddLife()
     {
-        currentLifes++;
+        currentLifes += 3;
     }
 
     public void AddLifeAmount(int amount)
