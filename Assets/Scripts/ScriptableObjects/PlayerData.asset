@@ -1,0 +1,43 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a4483d6bf0649449bee6777d3cb3621, type: 3}
+  m_Name: PlayerData
+  m_EditorClassIdentifier: 
+  selectedParts: 0
+  playerVariables:
+  - <cockPitPrefab>k__BackingField: {fileID: 21300000, guid: 7271d93404acadd418faa9c0bb8ee56e, type: 3}
+    <wingLeftPrefab>k__BackingField: {fileID: 21300000, guid: 18182dfafc41db34ba137d278dcd910f, type: 3}
+    <wingRightPrefab>k__BackingField: {fileID: 21300000, guid: 18182dfafc41db34ba137d278dcd910f, type: 3}
+    <gunLeftPrefab>k__BackingField: {fileID: 21300000, guid: 77de35f7477315442bef98ef9960adf0, type: 3}
+    <gunRightPrefab>k__BackingField: {fileID: 21300000, guid: 77de35f7477315442bef98ef9960adf0, type: 3}
+    <trailPrefab>k__BackingField: {fileID: 21300000, guid: 693510c6f5773604994f82fcc1137f60, type: 3}
+    <speed>k__BackingField: 4
+    <reloadTime>k__BackingField: 0.5
+    <lives>k__BackingField: 5
+  - <cockPitPrefab>k__BackingField: {fileID: 21300000, guid: cdd1d8ee8e0c05a4193d0f194ca53255, type: 3}
+    <wingLeftPrefab>k__BackingField: {fileID: 21300000, guid: 6dc39ab2034887544ad6345f2bb3ca0a, type: 3}
+    <wingRightPrefab>k__BackingField: {fileID: 21300000, guid: 6dc39ab2034887544ad6345f2bb3ca0a, type: 3}
+    <gunLeftPrefab>k__BackingField: {fileID: 21300000, guid: 77de35f7477315442bef98ef9960adf0, type: 3}
+    <gunRightPrefab>k__BackingField: {fileID: 21300000, guid: 77de35f7477315442bef98ef9960adf0, type: 3}
+    <trailPrefab>k__BackingField: {fileID: 21300000, guid: 693510c6f5773604994f82fcc1137f60, type: 3}
+    <speed>k__BackingField: 6
+    <reloadTime>k__BackingField: 0.7
+    <lives>k__BackingField: 10
+  - <cockPitPrefab>k__BackingField: {fileID: 21300000, guid: 65d3fa0e43070e64bb3f122b171abefa, type: 3}
+    <wingLeftPrefab>k__BackingField: {fileID: 21300000, guid: 6459c93726323d145b3856da6a7ab19e, type: 3}
+    <wingRightPrefab>k__BackingField: {fileID: 21300000, guid: 6459c93726323d145b3856da6a7ab19e, type: 3}
+    <gunLeftPrefab>k__BackingField: {fileID: 21300000, guid: 77de35f7477315442bef98ef9960adf0, type: 3}
+    <gunRightPrefab>k__BackingField: {fileID: 21300000, guid: 77de35f7477315442bef98ef9960adf0, type: 3}
+    <trailPrefab>k__BackingField: {fileID: 21300000, guid: 693510c6f5773604994f82fcc1137f60, type: 3}
+    <speed>k__BackingField: 3
+    <reloadTime>k__BackingField: 0.6
+    <lives>k__BackingField: 20

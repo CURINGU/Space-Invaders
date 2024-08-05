@@ -87,7 +87,7 @@ public class RandomPowerUp : MonoBehaviour
                 break;
             case 2:
                 playerPowerUps.AddLives();
-                selectedTxt.text = "5 Extra Lives!";
+                selectedTxt.text = "15 Extra Lives!";
                 break;
             case 3:
                 playerPowerUps.AddShieldDuration();

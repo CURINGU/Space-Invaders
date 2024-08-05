@@ -13,12 +13,14 @@ public class PlayerHealth : MonoBehaviour
 
     private PlayerSoundFeedback soundFeedback;
     private PlayerPowerUps playerPowerUps;
+    private GameManager gameManager;
 
     void Start()
     {
         anim = GetComponent<Animator>();
         soundFeedback = GetComponentInChildren<PlayerSoundFeedback>();
         playerPowerUps = GetComponent<PlayerPowerUps>();
+        gameManager = FindObjectOfType<GameManager>();
         currentLifes = maxLifes;
         lifeTxt.text = currentLifes.ToString();
     }
@@ -57,6 +59,7 @@ public class PlayerHealth : MonoBehaviour
 
     public void DestroyPlayer()
     {
+        gameManager.EndGame();
         Destroy(gameObject);
     }
 }

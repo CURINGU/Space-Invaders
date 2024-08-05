@@ -4,15 +4,14 @@ using UnityEngine;
 
 public class CursorController : MonoBehaviour
 {
-    public GameObject cursorPrefab; // Prefab da mira
+    public GameObject cursorPrefab;
     private GameObject cursorInstance;
 
     void Start()
     {
         // Esconde o cursor do sistema
-        Cursor.visible = false;
+        SetCursorInvisible();
 
-        // Instancia a mira
         cursorInstance = Instantiate(cursorPrefab);
     }
 
@@ -23,5 +22,15 @@ public class CursorController : MonoBehaviour
         mousePosition.z = Camera.main.nearClipPlane;
         Vector3 worldPosition = Camera.main.ScreenToWorldPoint(mousePosition);
         cursorInstance.transform.position = new Vector3(worldPosition.x, worldPosition.y, 0);
+    }
+
+    public void SetCursorVisible()
+    {
+        Cursor.visible = true;
+    }
+
+    public void SetCursorInvisible()
+    {
+        Cursor.visible = false;
     }
 }

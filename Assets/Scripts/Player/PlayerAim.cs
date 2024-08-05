@@ -15,7 +15,6 @@ public class PlayerAim : MonoBehaviour
     public bool isReloading;
     public float reloadTime = 0;
     public float maxReloadTime;
-    public float damage;
 
     // Start is called before the first frame update
     void Start()

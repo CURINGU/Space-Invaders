@@ -179,11 +179,16 @@ public class EnemyController : MonoBehaviour
         if (other.tag == "limit")
         {
             if(player != null)
+            {
                 player.GetComponent<PlayerHealth>().DecreaseLife();
-
-            pontuation.DecreasePoints(pointsToAdd / 2); //Desconta a pontuação total do jogador com a metade da pontuação concedida pelo inimigo 
-            FindObjectOfType<RoundManager>().EnemyDestroyed();
-            Destroy(gameObject);
+                pontuation.DecreasePoints(pointsToAdd / 2); //Desconta a pontuação total do jogador com a metade da pontuação concedida pelo inimigo 
+                FindObjectOfType<RoundManager>().EnemyDestroyed();
+                Destroy(gameObject);
+            }
+            else
+            {
+                Destroy(gameObject);
+            }
         }
     }
 }
